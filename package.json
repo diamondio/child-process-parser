@@ -1,0 +1,32 @@
+{
+  "name": "child-process-parser",
+  "version": "1.0.0",
+  "description": "Easier parsing of child process stdout",
+  "main": "lib/child-process-parser.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jknielse/child-process-parser.git"
+  },
+  "keywords": [
+    "parse",
+    "child",
+    "process"
+  ],
+  "author": "Jake Nielsen <jake.k.nielsen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jknielse/child-process-parser/issues"
+  },
+  "homepage": "https://github.com/jknielse/child-process-parser",
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {
+  }
+}
