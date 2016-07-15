@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jknielse/child-process-parser.git"
+    "url": "git@github.com:diamondio/child-process-parser.git"
   },
   "keywords": [
     "parse",
@@ -21,9 +21,9 @@
   "author": "Jake Nielsen <jake.k.nielsen@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jknielse/child-process-parser/issues"
+    "url": "https://github.com/diamondio/child-process-parser/issues"
   },
-  "homepage": "https://github.com/jknielse/child-process-parser",
+  "homepage": "https://github.com/diamondio/child-process-parser",
   "devDependencies": {
     "mocha": "^2.3.4"
   },
