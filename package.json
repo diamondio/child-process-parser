@@ -25,8 +25,9 @@
   },
   "homepage": "https://github.com/diamondio/child-process-parser",
   "devDependencies": {
-    "mocha": "^2.3.4"
+    "filesize": "^3.3.0",
+    "mocha": "^2.3.4",
+    "sleep": "^4.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
