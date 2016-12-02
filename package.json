@@ -1,8 +1,8 @@
 {
-  "name": "child-process-parser",
+  "name": "input-stream-parser",
   "version": "3.0.0",
-  "description": "Easier parsing of child process stdout",
-  "main": "lib/child-process-parser.js",
+  "description": "Easier parsing of input streams with a delimiter",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:diamondio/child-process-parser.git"
+    "url": "git@github.com:diamondio/input-stream-parser.git"
   },
   "keywords": [
     "parse",
@@ -21,9 +21,9 @@
   "author": "Diamond Inc. <ops@diamond.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/diamondio/child-process-parser/issues"
+    "url": "https://github.com/diamondio/input-stream-parser/issues"
   },
-  "homepage": "https://github.com/diamondio/child-process-parser",
+  "homepage": "https://github.com/diamondio/input-stream-parser",
   "devDependencies": {
     "mocha": "^2.3.4"
   },
