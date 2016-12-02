@@ -1,16 +1,16 @@
 var assert = require('assert');
-var cp = require('../lib/child-process-parser');
-
-var sleep = require('sleep');
+var cp = require('child_process');
+var cpp = require('../');
 
 describe('Basic Tests', function() {
   it('Echo Test', function (done) {
     var word_list = [];
-    cp(['echo', 'one', '2', 'three', '4'], ' ', function (word, cb) {
+    var proc = cp.spawn('echo', ['one', '2', 'three', '4']);
+    cpp(proc.stdout, ' ', function (word, cb) {
       word_list.push(word);
       cb();
-    }, function (eCode) {
-      assert.equal(eCode, 0);
+    }, function (err) {
+      assert.ok(!err);
       assert.deepEqual(word_list, ['one', '2', 'three', '4\n']);
       done();
     });
@@ -18,9 +18,10 @@ describe('Basic Tests', function() {
 
   it('Rand Test', function (done) {
     var word_list = [];
-    cp(['bash', './rand.sh', '10'], '\n', function (word, cb) {
+    var proc = cp.spawn('bash', [__dirname + '/rand.sh', '10']);
+    cpp(proc.stdout, '\n', function (word, cb) {
       setTimeout(cb, 1);
-    }, function (eCode) {
+    }, function (err) {
       done();
     });
   });

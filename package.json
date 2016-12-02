@@ -18,16 +18,16 @@
     "child",
     "process"
   ],
-  "author": "Jake Nielsen <jake.k.nielsen@gmail.com>",
+  "author": "Diamond Inc. <ops@diamond.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/diamondio/child-process-parser/issues"
   },
   "homepage": "https://github.com/diamondio/child-process-parser",
   "devDependencies": {
-    "filesize": "^3.3.0",
-    "mocha": "^2.3.4",
-    "sleep": "^4.0.0"
+    "mocha": "^2.3.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fastqueue": "^0.1.0"
+  }
 }
