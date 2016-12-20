@@ -4,6 +4,8 @@ var Queue = require('fastqueue');
 module.exports = function (input, delimiter, consumer, cb) {
   var queue = new Queue;
   var closed = false;
+  var errored = false;
+  var error   = null;
   var processing = false;
   var chunk = '';
 
@@ -24,13 +26,18 @@ module.exports = function (input, delimiter, consumer, cb) {
     }
     if (entry === undefined) return resume();
     processing = true;
-    consumer(entry, function () {
+    consumer(entry, function (err) {
+      if (err) {
+        error = err;
+        return input.resume();
+      }
       processing = false;
       resume();
     });
   }
 
   input.on('data', (data) => {
+    if (error) return;
     input.pause();
     chunk += `${data}`;
     var entries = chunk.split(delimiter);
@@ -42,6 +49,7 @@ module.exports = function (input, delimiter, consumer, cb) {
   });
 
   input.on('close', () => {
+    if (error) return cb(error);
     if (chunk.length > 0) {
       queue.push(chunk);
     }
