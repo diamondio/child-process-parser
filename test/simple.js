@@ -25,4 +25,18 @@ describe('Basic Tests', function() {
       done();
     });
   });
+
+  it('Error Test', function (done) {
+    var word_list = [];
+    var counter = 0;
+    var proc = cp.spawn('bash', [__dirname + '/rand.sh', '10']);
+    cpp(proc.stdout, '\n', function (word, cb) {
+      counter++;
+      cb('ERROR');
+    }, function (err) {
+      assert.equal(err, 'ERROR');
+      assert.equal(counter, 1);
+      done();
+    });
+  });
 });

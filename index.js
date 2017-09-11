@@ -28,7 +28,13 @@ module.exports = function (input, delimiter, consumer, cb) {
     }
     if (entry === undefined) return resume();
     processing = true;
-    consumer(entry, function () {
+    consumer(entry, function (err) {
+      if (err) {
+        cb(err);
+        closed = true;
+        sealed = true;
+        return input.close();
+      }
       processing = false;
       resume();
     });
