@@ -4,6 +4,7 @@ var Queue = require('fastqueue');
 module.exports = function (input, delimiter, consumer, cb) {
   var queue = new Queue;
   var closed = false;
+  var sealed = false;
   var processing = false;
   var chunk = '';
 
@@ -11,7 +12,10 @@ module.exports = function (input, delimiter, consumer, cb) {
     if (queue.length > 0) {
       next();
     } else if (closed) {
-      (typeof cb === "function") && cb();
+      if (!sealed) {
+        sealed = true;
+        (typeof cb === "function") && cb();
+      }
     } else {
       input.resume();
     }
